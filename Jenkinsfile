@@ -11,7 +11,7 @@ pipeline {
 
         stage('Clone Backend') {
             steps {
-                git branch: 'dev', url: 'https://github.com/codewithkathir/sp-backend.git'
+                git branch: 'main', url: 'https://github.com/codewithkathir/sp-backend.git'
             }
         }
 
@@ -24,11 +24,8 @@ pipeline {
         stage('Start Backend') {
             steps {
                 sh '''
-                # Stop old process if exists
                 pm2 delete sp-backend || true
-
-                # Start backend
-                pm2 start server.js --name sp-backend
+                pm2 start npm --name "sp-backend" -- run dev
                 '''
             }
         }
