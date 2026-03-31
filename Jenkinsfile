@@ -11,7 +11,7 @@ pipeline {
 
         stage('Clone Backend') {
             steps {
-                git branch: 'main', url: 'https://github.com/codewithkathir/sp-backend.git'
+                git branch: 'dev', url: 'https://github.com/codewithkathir/sp-backend.git'
             }
         }
 
